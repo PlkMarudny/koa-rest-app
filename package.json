@@ -19,8 +19,9 @@
     "koa-pino-logger": "^3.0.0"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "npm run version && rollup -c",
     "dev": "export PRODUCTION=false || set PRODUCTION=false&& rollup -c",
+    "version": "node src/getversion.js",
     "start": "node public/bundle.js"
   }
 }

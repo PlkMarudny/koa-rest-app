@@ -19,8 +19,9 @@ npm install
 
 Check `rollup.config.js` for entry point (`src/main.js`) and the output bundle (`public/bundle.js`). 
 
-`npm build` builds the application to `public/bundle.js`, along with a sourcemap file for debugging, minified
-`npm dev` builds application with no minification
+`npm build` builds the application to `public/bundle.js`, minified
+`npm dev` builds application with no minification. A sourcemap file for debugging is gnerated
+`npm version` creates `config\version.json` file with the git version information 
 `npm start` launches a server on a port defined in `config/config.js`
 
 
