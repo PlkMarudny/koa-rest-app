@@ -8,19 +8,24 @@
     "commitizen": "^4.2.2",
     "git-last-commit": "^1.0.0",
     "npm-run-all": "^4.1.5",
-    "rollup": "^2.33.2",
+    "rollup": "^2.33.3",
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
+    "@koa/cors": "^3.1.0",
     "@koa/router": "^10.0.0",
     "koa": "^2.13.0",
     "koa-body": "^4.2.0",
     "koa-json-error": "^3.1.2",
-    "koa-pino-logger": "^3.0.0"
+    "koa-pino-logger": "^3.0.0",
+    "koa-send": "^5.0.1",
+    "koa-static": "^5.0.0",
+    "pino-pretty": "^4.3.0",
+    "socket.io": "2.3.0"
   },
   "scripts": {
     "build": "npm run version && rollup -c",
-    "dev": "export PRODUCTION=false || set PRODUCTION=false&& rollup -c",
+    "dev": "export PRODUCTION=false || set PRODUCTION=false && rollup -c && node public/bundle.js",
     "version": "node src/getversion.js",
     "start": "node public/bundle.js"
   }

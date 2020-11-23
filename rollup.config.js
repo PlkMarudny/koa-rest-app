@@ -25,5 +25,5 @@ export default {
 		production && terser(), // minify, but only in production
 		json()
 	],
-	external : ["koa", "koa-body", "koa-pino-logger", "@koa/router", "koa-json-error", "git-last-commit"]
+	external: ["koa", "koa-body", "koa-send", "koa-pino-logger", "@koa/router", "koa-json-error", "git-last-commit", "socket.io", "koa-static"]
 };
