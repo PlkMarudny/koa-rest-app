@@ -1,6 +1,7 @@
 import koa from "koa";
-// import socketio from "socket.io";
-// import koabody from "koa-body";
+import sockjs from "sockjs";
+import primus from "primus.io";
+import http from "http";
 import pino from 'koa-pino-logger';
 
 import jsonerror from "koa-json-error";
@@ -12,7 +13,7 @@ import versionroute from "./routes/version";
 
 import config from "./config/config.json";
 import serve from "koa-static";
-import send from "koa-send";
+// import send from "koa-send";
 import cors from "@koa/cors";
 
 const app = new koa();
@@ -25,6 +26,7 @@ app.use(pino({
         colorize: true,
     },
 }));
+
 app.use(jsonerror(formatError));
 app.use(cors({ 'Access-Control-Allow-Credentials': true }));
 
@@ -49,17 +51,42 @@ app.use(serve('.'));
 // app.use(homeroute.allowedMethods);
 // app.use(homeroute.routes());
 
-const server = require('http').createServer(app.callback());
-const io = require('socket.io')(server);
+// sockjs server
+// const sockjs_comm = sockjs.createServer();
 
+// sockjs_comm.on('connection', function (conn) {
+//     conn.on('data', function (message) {
+//         conn.write(message);
+//     });
 
-io.on('connect', socket => {
-    console.log('connected');
-    socket.on('chat', data => {
-        console.log(data.text);
-    });
-    socket.on('disconnect', () => console.log('disconnected'));
-});
+//     conn.on('close', function (message) {
+//         conn.write(message);
+//     });
+// });
+
+// primus server
+const server = http.createServer(app.callback());
+const socket = new primus(server, { transformer: 'sockjs', parser: 'JSON' });
+
+socket.on('open', function open() {
+    console.log('The connection has been opened.');
+}).on('end', function end() {
+    console.log('The connection has been closed.');
+}).on('reconnecting', function reconnecting(opts) {
+    console.log('We are scheduling a reconnect operation', opts);
+}).on('data', function incoming(data) {
+    console.log('Received some data', data);
+  });
+
+// sockjs_comm.installHandlers(server, { prefix: '/echo' });
+
+// io.on('connect', socket => {
+//     console.log('connected');
+//     socket.on('chat', data => {
+//         console.log(data.text);
+//     });
+//     socket.on('disconnect', () => console.log('disconnected'));
+// });
 
 server.listen(serverPort, (err) => {
     if (err) throw err;

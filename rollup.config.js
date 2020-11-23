@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import json from '@rollup/plugin-json';
+import globals from "rollup-plugin-node-globals"
 
 // `npm build` -> `production` is true
 // `npm dev` -> `production` is false
@@ -15,8 +16,9 @@ export default {
 		sourcemap: !production
 	},
 	plugins: [
+		globals(),
 		resolve({
-			preferBuiltins: true,
+			preferBuiltins: true
 		}), 
 		commonjs({
 			include: 'node_modules/**',
@@ -25,5 +27,5 @@ export default {
 		production && terser(), // minify, but only in production
 		json()
 	],
-	external: ["koa", "koa-body", "koa-send", "koa-pino-logger", "@koa/router", "koa-json-error", "git-last-commit", "socket.io", "koa-static"]
+	external: ["primus.io", "http", "sockjs", "koa", "koa-body", "koa-send", "koa-pino-logger", "@koa/router", "koa-json-error", "git-last-commit", "@koa/cors", "koa-static"]
 };

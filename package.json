@@ -9,6 +9,7 @@
     "git-last-commit": "^1.0.0",
     "npm-run-all": "^4.1.5",
     "rollup": "^2.33.3",
+    "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
@@ -21,7 +22,8 @@
     "koa-send": "^5.0.1",
     "koa-static": "^5.0.0",
     "pino-pretty": "^4.3.0",
-    "socket.io": "2.3.0"
+    "primus.io": "^4.0.0",
+    "sockjs": "^0.3.21"
   },
   "scripts": {
     "build": "npm run version && rollup -c",
