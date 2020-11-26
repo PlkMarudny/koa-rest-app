@@ -1,5 +1,6 @@
+import dotenvSafe from "dotenv-safe";
+
 import koa from "koa";
-import sockjs from "sockjs";
 import primus from "primus.io";
 import http from "http";
 import pino from 'koa-pino-logger';
@@ -11,13 +12,21 @@ import healthroute from "./routes/healthroute";
 import errorroute from "./routes/errorroute";
 import versionroute from "./routes/version";
 
-import config from "./config/config.json";
 import serve from "koa-static";
-// import send from "koa-send";
 import cors from "@koa/cors";
+import { EventSource } from "launchdarkly-eventsource";
+
+import CouchdbChangeEvents from "./couchdb-change-events";
+import url from "url";
+
+// read .env (config file)
+const result = dotenvSafe.config();
+if (result.error) {
+    throw result.error;
+}
 
 const app = new koa();
-const serverPort = config.port;
+const serverPort = process.env.PORT;
 
 app.silent = true;
 
@@ -37,32 +46,17 @@ app.use(errorroute.allowedMethods());
 app.use(versionroute.routes());
 app.use(versionroute.allowedMethods());
 
-// app.use(async (ctx) => {
-//     await send(ctx, 'favicon.png');
-// });
-app.use(serve('.'));
-// app.use(async (ctx) => {
-//     ctx.cookies.set("X-Remote-User", ctx.req.headers['x-remote-user'], {});
-//     await send(ctx, 'index.html');
-// });
+app.use(async (ctx, next) => {
+    ctx.cookies.set("X-Remote-User", ctx.req.headers['x-remote-user'], {});
+    await next();
+});
 
+app.use(serve('./'));
+// app.use(serve('/public'));
 
 // app.use(serve('/public'));
 // app.use(homeroute.allowedMethods);
 // app.use(homeroute.routes());
-
-// sockjs server
-// const sockjs_comm = sockjs.createServer();
-
-// sockjs_comm.on('connection', function (conn) {
-//     conn.on('data', function (message) {
-//         conn.write(message);
-//     });
-
-//     conn.on('close', function (message) {
-//         conn.write(message);
-//     });
-// });
 
 // primus server
 const server = http.createServer(app.callback());
@@ -76,18 +70,40 @@ socket.on('open', function open() {
     console.log('We are scheduling a reconnect operation', opts);
 }).on('data', function incoming(data) {
     console.log('Received some data', data);
-  });
+});
 
-// sockjs_comm.installHandlers(server, { prefix: '/echo' });
 
-// io.on('connect', socket => {
-//     console.log('connected');
-//     socket.on('chat', data => {
-//         console.log(data.text);
-//     });
-//     socket.on('disconnect', () => console.log('disconnected'));
-// });
+// CouchDb notifications
+const fullUrl = new url.parse(process.env.DBHOST);
+const couchdbEvents = new CouchdbChangeEvents({
+    protocol: fullUrl.protocol,
+    host: fullUrl.hostname,
+    port: fullUrl.port,
+    database: process.env.DBNAME,
+    user: process.env.DBUSER,
+    password: process.env.DBPASS,
+    rejectUnauthorized: false,
+    autoConnect: false,
+    style: "all_docs",
+    lastEventId: "now",
+});
 
+// eventsource from CouchDb
+const sseUrl = couchdbEvents.getSSEUrl();
+const es = new EventSource(sseUrl, {
+    https: { rejectUnauthorized: false },
+    initialRetryDelayMillis: 3000,
+    maxRetryDelayMillis: 90000,
+    retryResetIntervalMillis: 60000, // backoff will reset to initial level if stream got an event at least 60 seconds before failing
+    jitterRatio: 0.5
+});
+
+es.addEventListener('message', function (data) {
+    // console.log('data received: ', data);
+    socket.write(data.data);
+});
+
+// launch the server
 server.listen(serverPort, (err) => {
     if (err) throw err;
     console.log(`\nServer running at port ${serverPort}`);
