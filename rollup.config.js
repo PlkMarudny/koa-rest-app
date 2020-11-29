@@ -16,7 +16,7 @@ export default {
 	},
 	plugins: [
 		resolve({
-			preferBuiltins: true,
+			preferBuiltins: true
 		}), 
 		commonjs({
 			include: 'node_modules/**',
@@ -25,5 +25,5 @@ export default {
 		production && terser(), // minify, but only in production
 		json()
 	],
-	external : ["koa", "koa-body", "koa-pino-logger", "@koa/router", "koa-json-error", "git-last-commit"]
+	external: ["fs", "events", "https", "url", "dotenv-safe", "launchdarkly-eventsource", "primus.io", "http", "sockjs", "koa", "koa-body", "koa-send", "koa-pino-logger", "@koa/router", "koa-json-error", "git-last-commit", "@koa/cors", "koa-static"]
 };

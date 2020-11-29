@@ -1,6 +1,7 @@
 {
   "name": "koa-rollup-starter-app",
   "license": "ISC",
+  "version": "0.16.0",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-json": "^4.1.0",
@@ -8,19 +9,29 @@
     "commitizen": "^4.2.2",
     "git-last-commit": "^1.0.0",
     "npm-run-all": "^4.1.5",
-    "rollup": "^2.33.2",
+    "rollup": "^2.33.3",
+    "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
+    "@koa/cors": "^3.1.0",
     "@koa/router": "^10.0.0",
+    "dotenv-safe": "^8.2.0",
     "koa": "^2.13.0",
     "koa-body": "^4.2.0",
     "koa-json-error": "^3.1.2",
-    "koa-pino-logger": "^3.0.0"
+    "koa-pino-logger": "^3.0.0",
+    "koa-send": "^5.0.1",
+    "koa-static": "^5.0.0",
+    "launchdarkly-eventsource": "^1.3.1",
+    "pino-pretty": "^4.3.0",
+    "primus.io": "^4.0.0",
+    "proper-url-join": "^2.1.1",
+    "sockjs": "^0.3.21"
   },
   "scripts": {
     "build": "npm run version && rollup -c",
-    "dev": "export PRODUCTION=false || set PRODUCTION=false&& rollup -c",
+    "dev": "export PRODUCTION=false || set PRODUCTION=false && rollup -c && node public/bundle.js",
     "version": "node src/getversion.js",
     "start": "node public/bundle.js"
   }
