@@ -47,14 +47,15 @@ app.use(versionroute.routes());
 app.use(versionroute.allowedMethods());
 
 app.use(async (ctx, next) => {
-    ctx.cookies.set("X-Remote-User", ctx.req.headers['x-remote-user'], {});
+    let user = ctx.req.headers['x-remote-user'];
+    user.replace();
+    ctx.cookies.set("X-Remote-User", ctx.req.headers['x-remote-user'], { httpOnly: false });
     await next();
 });
 
-app.use(serve('./'));
-// app.use(serve('/public'));
+app.use(serve('public'));
+// app.use(serve('build'));
 
-// app.use(serve('/public'));
 // app.use(homeroute.allowedMethods);
 // app.use(homeroute.routes());
 
