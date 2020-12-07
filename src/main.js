@@ -1,8 +1,11 @@
 import dotenvSafe from "dotenv-safe";
 
 import koa from "koa";
+
 import primus from "primus.io";
+import emit from "primus-emit";
 import http from "http";
+
 import pino from 'koa-pino-logger';
 
 import jsonerror from "koa-json-error";
@@ -72,6 +75,7 @@ app.use(serve('public'));
 // primus server
 const server = http.createServer(app.callback());
 const socket = new primus(server, { transformer: 'sockjs', parser: 'JSON' });
+socket.plugin('emit', emit);
 
 socket.on('open', function open() {
     console.log('The connection has been opened.');
@@ -111,7 +115,11 @@ const es = new EventSource(sseUrl, {
 
 es.addEventListener('message', function (data) {
     // console.log('data received: ', data);
-    socket.write(data.data);
+    // without a custom event
+    // socket.write(data.data);
+    socket.forEach(function (spark) {
+        spark.emit('update', data.data);
+    });
 });
 
 // CouchDb
