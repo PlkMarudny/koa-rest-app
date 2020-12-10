@@ -1,9 +1,11 @@
 var http = require("http");
 var primus = require("primus.io");
+
 var fs = require("fs");
 
 const server = http.createServer();
 const socket = new primus(server, { transformer: 'sockjs', parser: 'JSON' });
+socket.use('emit', 'primus-emit');
 const clib = socket.library();
 
 fs.writeFile("primus-client.js", clib, function (err) {

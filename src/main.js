@@ -61,8 +61,8 @@ app.use(dbroute.allowedMethods());
 
 app.use(async (ctx, next) => {
     let user = ctx.req.headers['x-remote-user'];
-    user.replace();
-    ctx.cookies.set("X-Remote-User", ctx.req.headers['x-remote-user'], { httpOnly: false });
+    console.log("user: ", user);
+    ctx.cookies.set("X-Remote-User", user, { httpOnly: false, overwrite: true });
     await next();
 });
 
@@ -85,6 +85,10 @@ socket.on('open', function open() {
     console.log('We are scheduling a reconnect operation', opts);
 }).on('data', function incoming(data) {
     console.log('Received some data', data);
+}).on('takein', function incoming(data) {
+    console.log('take in: ', data);
+}).on('takeout', function incoming(data) {
+    console.log('take out: ', data);
 });
 
 
@@ -114,8 +118,7 @@ const es = new EventSource(sseUrl, {
 });
 
 es.addEventListener('message', function (data) {
-    // console.log('data received: ', data);
-    // without a custom event
+    // without a custom event this will be:
     // socket.write(data.data);
     socket.forEach(function (spark) {
         spark.emit('update', data.data);
