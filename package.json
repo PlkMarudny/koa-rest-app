@@ -1,7 +1,7 @@
 {
   "name": "koa-rollup-starter-app",
   "license": "ISC",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-json": "^4.1.0",
