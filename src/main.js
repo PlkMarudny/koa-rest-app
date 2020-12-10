@@ -22,6 +22,7 @@ import serve from "koa-static";
 import cors from "@koa/cors";
 
 import { EventSource } from "launchdarkly-eventsource";
+import versionObj from "./config/version.json";
 
 import CouchdbChangeEvents from "./couchdb-change-events";
 import url from "url";
@@ -124,6 +125,18 @@ es.addEventListener('message', function (data) {
         spark.emit('update', data.data);
     });
 });
+
+// send the current version to clients connected
+if (versionObj && versionObj.subject !== "") {
+    console.log(`Current version: ${versionObj.subject}`);
+    setInterval(() => {
+        socket.forEach(function (spark) {
+            spark.emit('version', versionObj.subject);
+        });
+    }, process.env.VERINTERVAL * 1000);
+} else {
+    console.log("\nSoftware version unknown, git commit was not tagged?");
+}
 
 // CouchDb
 const myagent = new Agent.HttpsAgent({
