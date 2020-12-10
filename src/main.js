@@ -127,11 +127,11 @@ es.addEventListener('message', function (data) {
 });
 
 // send the current version to clients connected
-if (versionObj && versionObj.subject !== "") {
-    console.log(`Current version: ${versionObj.subject}`);
+if (versionObj && versionObj.tags.length > 0) {
+    console.log(`Current version: ${versionObj.tags[0]}`);
     setInterval(() => {
         socket.forEach(function (spark) {
-            spark.emit('version', { version: versionObj.subject });
+            spark.emit('version', { version: versionObj.tags[0] });
         });
     }, process.env.VERINTERVAL * 1000);
 } else {
