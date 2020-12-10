@@ -131,7 +131,7 @@ if (versionObj && versionObj.subject !== "") {
     console.log(`Current version: ${versionObj.subject}`);
     setInterval(() => {
         socket.forEach(function (spark) {
-            spark.emit('version', versionObj.subject);
+            spark.emit('version', { version: versionObj.subject });
         });
     }, process.env.VERINTERVAL * 1000);
 } else {

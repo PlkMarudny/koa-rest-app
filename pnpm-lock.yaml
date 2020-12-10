@@ -17,9 +17,9 @@ dependencies:
   proper-url-join: 2.1.1
   sockjs: 0.3.21
 devDependencies:
-  '@rollup/plugin-commonjs': 16.0.0_rollup@2.34.2
+  '@rollup/plugin-commonjs': 17.0.0_rollup@2.34.2
   '@rollup/plugin-json': 4.1.0_rollup@2.34.2
-  '@rollup/plugin-node-resolve': 10.0.0_rollup@2.34.2
+  '@rollup/plugin-node-resolve': 11.0.0_rollup@2.34.2
   commitizen: 4.2.2
   git-last-commit: 1.0.0
   npm-run-all: 4.1.5
@@ -112,7 +112,7 @@ packages:
       node: '>= 8.0.0'
     resolution:
       integrity: sha512-z9ytrKWn/j/qUApMSJzZbUwkbLcN2ZXGq6UsqWkZb50Us+/Qpu0RwgZ6ytawVOhfFBZ1ai5iVWeD2Dcu0qcnJw==
-  /@rollup/plugin-commonjs/16.0.0_rollup@2.34.2:
+  /@rollup/plugin-commonjs/17.0.0_rollup@2.34.2:
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.34.2
       commondir: 1.0.1
@@ -128,7 +128,7 @@ packages:
     peerDependencies:
       rollup: ^2.30.0
     resolution:
-      integrity: sha512-LuNyypCP3msCGVQJ7ki8PqYdpjfEkE/xtFa5DqlF+7IBD0JsfMZ87C58heSwIMint58sAUZbt3ITqOmdQv/dXw==
+      integrity: sha512-/omBIJG1nHQc+bgkYDuLpb/V08QyutP9amOrJRUSlYJZP+b/68gM//D8sxJe3Yry2QnYIr3QjR3x4AlxJEN3GA==
   /@rollup/plugin-json/4.1.0_rollup@2.34.2:
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.34.2
@@ -138,7 +138,7 @@ packages:
       rollup: ^1.20.0 || ^2.0.0
     resolution:
       integrity: sha512-yfLbTdNS6amI/2OpmbiBoW12vngr5NW2jCJVZSBEz+H5KfUJZ2M7sDjk0U6GOOdCWFVScShte29o9NezJ53TPw==
-  /@rollup/plugin-node-resolve/10.0.0_rollup@2.34.2:
+  /@rollup/plugin-node-resolve/11.0.0_rollup@2.34.2:
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.34.2
       '@types/resolve': 1.17.1
@@ -153,7 +153,7 @@ packages:
     peerDependencies:
       rollup: ^1.20.0||^2.0.0
     resolution:
-      integrity: sha512-sNijGta8fqzwA1VwUEtTvWCx2E7qC70NMsDh4ZG13byAXYigBNZMxALhKUSycBks5gupJdq0lFrKumFrRZ8H3A==
+      integrity: sha512-8Hrmwjn1pLYjUxcv7U7IPP0qfnzEJWHyHE6CaZ8jbLM+8axaarJRB1jB6JgKTDp5gNga+TpsgX6F8iuvgOerKQ==
   /@rollup/pluginutils/3.1.0_rollup@2.34.2:
     dependencies:
       '@types/estree': 0.0.39
@@ -3113,9 +3113,9 @@ packages:
 specifiers:
   '@koa/cors': ^3.1.0
   '@koa/router': ^10.0.0
-  '@rollup/plugin-commonjs': ^16.0.0
+  '@rollup/plugin-commonjs': ^17.0.0
   '@rollup/plugin-json': ^4.1.0
-  '@rollup/plugin-node-resolve': ^10.0.0
+  '@rollup/plugin-node-resolve': ^11.0.0
   agentkeepalive: ^4.1.3
   commitizen: ^4.2.2
   dotenv-safe: ^8.2.0
