@@ -1,6 +1,7 @@
 import https from 'https';
 import http from 'http';
 import EventEmitter from 'events';
+import { url } from '@koa/router';
 
 export default class CouchdbChangeEvents extends EventEmitter {
     constructor({
@@ -213,5 +214,11 @@ export default class CouchdbChangeEvents extends EventEmitter {
         const opts = this.getRequestOptions();
         const addr = `${opts.protocol}//${opts.auth}@${opts.host}:${opts.port}${opts.path}`;
         return addr;
+    }
+
+    getCouchDbUrl() {
+        const opts = this.getRequestOptions();
+        const url = `${opts.protocol}//${opts.auth}@${opts.host}:${opts.port}`;
+        return url;
     }
 }

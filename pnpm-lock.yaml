@@ -1,6 +1,7 @@
 dependencies:
   '@koa/cors': 3.1.0
   '@koa/router': 10.0.0
+  agentkeepalive: 4.1.3
   dotenv-safe: 8.2.0
   koa: 2.13.0
   koa-body: 4.2.0
@@ -9,7 +10,9 @@ dependencies:
   koa-send: 5.0.1
   koa-static: 5.0.0
   launchdarkly-eventsource: 1.3.1
+  nano: 9.0.1
   pino-pretty: 4.3.0
+  primus-emit: 1.0.0
   primus.io: 4.0.0
   proper-url-join: 2.1.1
   sockjs: 0.3.21
@@ -178,11 +181,16 @@ packages:
   /@types/formidable/1.0.31:
     dependencies:
       '@types/events': 3.0.0
-      '@types/node': 14.14.7
+      '@types/node': 14.14.10
     dev: false
     resolution:
       integrity: sha512-dIhM5t8lRP0oWe2HF8MuPvdd1TpPTjhDMAqemcq6oIZQCBQTovhBAdTQ5L5veJB4pdQChadmHuxtB0YzqvfU3Q==
+  /@types/node/14.14.10:
+    dev: false
+    resolution:
+      integrity: sha512-J32dgx2hw8vXrSbu4ZlVhn1Nm3GbeCFNw2FWL8S5QKucHGY0cyNwjdQdO+KMBZ4wpmC7KhLCiNsdk1RFRIYUQQ==
   /@types/node/14.14.7:
+    dev: true
     resolution:
       integrity: sha512-Zw1vhUSQZYw+7u5dAwNbIA9TuTotpzY/OF7sJM9FqPOF3SPjKnxrjoTktXDZgUjybf4cWVBP7O8wvKdSaGHweg==
   /@types/parse-json/4.0.0:
@@ -220,6 +228,16 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
+  /agentkeepalive/4.1.3:
+    dependencies:
+      debug: 4.3.1
+      depd: 1.1.2
+      humanize-ms: 1.2.1
+    dev: false
+    engines:
+      node: '>= 8.0.0'
+    resolution:
+      integrity: sha512-wn8fw19xKZwdGPO47jivonaHRTd+nGOMP1z11sgGeQzDy2xd5FG0R67dIMcKHDE2cJ5y+YXV30XVGUBPRSY7Hg==
   /ansi-escapes/3.2.0:
     dev: true
     engines:
@@ -324,6 +342,12 @@ packages:
       node: '>=8.0.0'
     resolution:
       integrity: sha512-kNOjDqAh7px0XWNI+4QbzoiR/nTkHAWNud2uvnJquD1/x5a7EQZMJT0AczqK0Qn67oY/TTQ1LbUKajZpp3I9tQ==
+  /axios/0.21.0:
+    dependencies:
+      follow-redirects: 1.13.0
+    dev: false
+    resolution:
+      integrity: sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==
   /balanced-match/1.0.0:
     dev: true
     resolution:
@@ -715,6 +739,19 @@ packages:
         optional: true
     resolution:
       integrity: sha512-IX2ncY78vDTjZMFUdmsvIRFY2Cf4FnD0wRs+nQwJU8Lu99/tPFdb0VybiiMTPe3I6rQmwsqQqRBvxU+bZ/I8sg==
+  /debug/4.3.1:
+    dependencies:
+      ms: 2.1.2
+    dev: false
+    engines:
+      node: '>=6.0'
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    resolution:
+      integrity: sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
   /decode-uri-component/0.2.0:
     engines:
       node: '>=0.10'
@@ -1072,6 +1109,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4zPxDyhCyiN2wIAtSLI6gc82/EjqZc1onI4Mz/l0pWrAlsSfYH/2ZIcU+e3oA2wDwbzIWNKwa23F8rh6+DRWkw==
+  /follow-redirects/1.13.0:
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
   /for-in/1.0.2:
     dev: true
     engines:
@@ -1328,6 +1371,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-opCO9ASqg5Wy2FNo7A0sxy71yGbbkJJXLdgMK04Tcypw9jr2MgWbyubb0+WdmDmGnFflO7fRbqbaihh/ENDlRQ==
+  /humanize-ms/1.2.1:
+    dependencies:
+      ms: 2.1.2
+    dev: false
+    resolution:
+      integrity: sha1-xG4xWaKT9riW2ikxbYtv6Lt5u+0=
   /iconv-lite/0.4.24:
     dependencies:
       safer-buffer: 2.1.2
@@ -1952,6 +2001,15 @@ packages:
     dev: true
     resolution:
       integrity: sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
+  /nano/9.0.1:
+    dependencies:
+      axios: 0.21.0
+      qs: 6.9.4
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-RJ+xMWjVKb/Y2A3YDTC5hg+mvktcRl8XDRMLTa+i3wPaqb02BTEWdPHcDDqKqGnqs0cIwFu5vuwzvnrsr/pW+A==
   /nanomatch/1.2.13:
     dependencies:
       arr-diff: 4.0.0
@@ -2244,6 +2302,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-KqkrRJa8H4VU5DpF92v75Q0z038=
+  /primus-emit/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-5LIxaHBsvqfLpjC0goBtv/30w+k=
   /primus-emitter/3.1.1:
     dev: false
     resolution:
@@ -3072,6 +3134,7 @@ specifiers:
   '@rollup/plugin-commonjs': ^16.0.0
   '@rollup/plugin-json': ^4.1.0
   '@rollup/plugin-node-resolve': ^10.0.0
+  agentkeepalive: ^4.1.3
   commitizen: ^4.2.2
   dotenv-safe: ^8.2.0
   git-last-commit: ^1.0.0
@@ -3082,8 +3145,10 @@ specifiers:
   koa-send: ^5.0.1
   koa-static: ^5.0.0
   launchdarkly-eventsource: ^1.3.1
+  nano: ^9.0.1
   npm-run-all: ^4.1.5
   pino-pretty: ^4.3.0
+  primus-emit: ^1.0.0
   primus.io: ^4.0.0
   proper-url-join: ^2.1.1
   rollup: ^2.33.3

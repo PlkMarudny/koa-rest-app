@@ -25,5 +25,5 @@ export default {
 		production && terser(), // minify, but only in production
 		json()
 	],
-	external: ["fs", "events", "https", "url", "dotenv-safe", "launchdarkly-eventsource", "primus.io", "http", "sockjs", "koa", "koa-body", "koa-send", "koa-pino-logger", "@koa/router", "koa-json-error", "git-last-commit", "@koa/cors", "koa-static"]
+	external: ["nano", "agentkeepalive", "fs", "events", "https", "url", "dotenv-safe", "launchdarkly-eventsource", "primus.io", "http", "sockjs", "koa", "koa-body", "koa-send", "koa-pino-logger", "@koa/router", "koa-json-error", "git-last-commit", "@koa/cors", "koa-static"]
 };

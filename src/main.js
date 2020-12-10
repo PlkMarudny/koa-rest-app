@@ -1,8 +1,11 @@
 import dotenvSafe from "dotenv-safe";
 
 import koa from "koa";
+
 import primus from "primus.io";
+import emit from "primus-emit";
 import http from "http";
+
 import pino from 'koa-pino-logger';
 
 import jsonerror from "koa-json-error";
@@ -12,12 +15,20 @@ import healthroute from "./routes/healthroute";
 import errorroute from "./routes/errorroute";
 import versionroute from "./routes/version";
 
+import dbroute from "./routes/db";
+
 import serve from "koa-static";
+
 import cors from "@koa/cors";
+
 import { EventSource } from "launchdarkly-eventsource";
 
 import CouchdbChangeEvents from "./couchdb-change-events";
 import url from "url";
+
+import nano from "nano";
+import Agent from "agentkeepalive";
+import "./errors/dberrors";
 
 // read .env (config file)
 const result = dotenvSafe.config();
@@ -45,11 +56,13 @@ app.use(errorroute.routes());
 app.use(errorroute.allowedMethods());
 app.use(versionroute.routes());
 app.use(versionroute.allowedMethods());
+app.use(dbroute.routes());
+app.use(dbroute.allowedMethods());
 
 app.use(async (ctx, next) => {
     let user = ctx.req.headers['x-remote-user'];
-    user.replace();
-    ctx.cookies.set("X-Remote-User", ctx.req.headers['x-remote-user'], { httpOnly: false });
+    console.log("user: ", user);
+    ctx.cookies.set("X-Remote-User", user, { httpOnly: false, overwrite: true });
     await next();
 });
 
@@ -62,6 +75,7 @@ app.use(serve('public'));
 // primus server
 const server = http.createServer(app.callback());
 const socket = new primus(server, { transformer: 'sockjs', parser: 'JSON' });
+socket.plugin('emit', emit);
 
 socket.on('open', function open() {
     console.log('The connection has been opened.');
@@ -71,6 +85,10 @@ socket.on('open', function open() {
     console.log('We are scheduling a reconnect operation', opts);
 }).on('data', function incoming(data) {
     console.log('Received some data', data);
+}).on('takein', function incoming(data) {
+    console.log('take in: ', data);
+}).on('takeout', function incoming(data) {
+    console.log('take out: ', data);
 });
 
 
@@ -100,11 +118,31 @@ const es = new EventSource(sseUrl, {
 });
 
 es.addEventListener('message', function (data) {
-    // console.log('data received: ', data);
-    socket.write(data.data);
+    // without a custom event this will be:
+    // socket.write(data.data);
+    socket.forEach(function (spark) {
+        spark.emit('update', data.data);
+    });
 });
 
+// CouchDb
+const myagent = new Agent.HttpsAgent({
+    maxSockets: 50,
+    maxKeepAliveRequests: 0,
+    maxKeepAliveTime: 30000
+});
+
+app.couchdb = nano({
+    url: couchdbEvents.getCouchDbUrl(),
+    requestDefaults: { "agent": myagent }
+});
+
+// couch.use(process.env.DBCFG).get('templates').then(resp => {
+//     console.log(resp);
+// });
+//
 // launch the server
+// 
 server.listen(serverPort, (err) => {
     if (err) throw err;
     console.log(`\nServer running at port ${serverPort}`);
