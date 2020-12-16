@@ -126,7 +126,7 @@ es.addEventListener('message', function (data) {
     });
 });
 
-// send the current version to clients connected
+// periodically send the current version to clients connected
 if (versionObj && versionObj.tags.length > 0) {
     console.log(`Current version: ${versionObj.tags[0]}`);
     setInterval(() => {
