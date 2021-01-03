@@ -14,6 +14,9 @@ import formatError from "./errors/formaterror";
 import healthroute from "./routes/healthroute";
 import errorroute from "./routes/errorroute";
 import versionroute from "./routes/version";
+import clientsroute from "./routes/clients";
+
+import { app, server, socket } from "./server.js";
 
 import dbroute from "./routes/db";
 
@@ -37,16 +40,19 @@ if (result.error) {
     throw result.error;
 }
 
-const app = new koa();
+// const app = new koa();
 const serverPort = process.env.PORT;
 
 app.silent = true;
 
-app.use(pino({
-    prettyPrint: {
-        colorize: true,
-    },
-}));
+if (process.env.LOGREQUEST) {
+    app.use(pino({
+        prettyPrint: {
+            colorize: true,
+        },
+    }));
+}
+
 
 app.use(jsonerror(formatError));
 app.use(cors({ 'Access-Control-Allow-Credentials': true }));
@@ -59,39 +65,17 @@ app.use(versionroute.routes());
 app.use(versionroute.allowedMethods());
 app.use(dbroute.routes());
 app.use(dbroute.allowedMethods());
+app.use(clientsroute.routes());
+app.use(dbroute.allowedMethods());
 
 app.use(async (ctx, next) => {
     let user = ctx.req.headers['x-remote-user'];
-    console.log("user: ", user);
+    // console.log("user: ", user);
     ctx.cookies.set("X-Remote-User", user, { httpOnly: false, overwrite: true });
     await next();
 });
 
 app.use(serve('public'));
-// app.use(serve('build'));
-
-// app.use(homeroute.allowedMethods);
-// app.use(homeroute.routes());
-
-// primus server
-const server = http.createServer(app.callback());
-const socket = new primus(server, { transformer: 'sockjs', parser: 'JSON' });
-socket.plugin('emit', emit);
-
-socket.on('open', function open() {
-    console.log('The connection has been opened.');
-}).on('end', function end() {
-    console.log('The connection has been closed.');
-}).on('reconnecting', function reconnecting(opts) {
-    console.log('We are scheduling a reconnect operation', opts);
-}).on('data', function incoming(data) {
-    console.log('Received some data', data);
-}).on('takein', function incoming(data) {
-    console.log('take in: ', data);
-}).on('takeout', function incoming(data) {
-    console.log('take out: ', data);
-});
-
 
 // CouchDb notifications
 const fullUrl = new url.parse(process.env.DBHOST);
