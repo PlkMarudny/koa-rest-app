@@ -1,12 +1,7 @@
 import dotenvSafe from "dotenv-safe";
 
-import koa from "koa";
-
-import primus from "primus.io";
-import emit from "primus-emit";
-import http from "http";
-
-import pino from 'koa-pino-logger';
+import pino from 'pino';
+import pinologger from 'koa-pino-logger';
 
 import jsonerror from "koa-json-error";
 import formatError from "./errors/formaterror";
@@ -45,14 +40,15 @@ const serverPort = process.env.PORT;
 
 app.silent = true;
 
-if (process.env.LOGREQUEST) {
-    app.use(pino({
-        prettyPrint: {
-            colorize: true,
-        },
-    }));
-}
+const logger = pinologger({
+    instance: pino, prettyPrint: {
+        colorize: true,
+    },
+});
 
+if (process.env.LOGREQUEST) {
+    app.use(logger);
+}
 
 app.use(jsonerror(formatError));
 app.use(cors({ 'Access-Control-Allow-Credentials': true }));
@@ -119,7 +115,7 @@ if (versionObj && versionObj.tags.length > 0) {
         });
     }, process.env.VERINTERVAL * 1000);
 } else {
-    console.log("\nSoftware version unknown, git commit was not tagged?");
+    pino().info("Software version unknown, git commit was not tagged?");
 }
 
 // CouchDb
@@ -142,6 +138,6 @@ app.couchdb = nano({
 // 
 server.listen(serverPort, (err) => {
     if (err) throw err;
-    console.log(`\nServer running at port ${serverPort}`);
+    pino().info(`Server running at port ${serverPort}`);
 });
 

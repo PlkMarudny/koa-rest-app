@@ -1,7 +1,5 @@
 import https from 'https';
-import http from 'http';
 import EventEmitter from 'events';
-import { url } from '@koa/router';
 
 export default class CouchdbChangeEvents extends EventEmitter {
     constructor({
