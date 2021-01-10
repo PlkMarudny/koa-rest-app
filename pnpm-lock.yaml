@@ -18,15 +18,15 @@ dependencies:
   proper-url-join: 2.1.1
   sockjs: 0.3.21
 devDependencies:
-  '@rollup/plugin-commonjs': 17.0.0_rollup@2.34.2
-  '@rollup/plugin-json': 4.1.0_rollup@2.34.2
-  '@rollup/plugin-node-resolve': 11.0.0_rollup@2.34.2
+  '@rollup/plugin-commonjs': 17.0.0_rollup@2.35.1
+  '@rollup/plugin-json': 4.1.0_rollup@2.35.1
+  '@rollup/plugin-node-resolve': 11.0.1_rollup@2.35.1
   commitizen: 4.2.2
   git-last-commit: 1.0.0
   npm-run-all: 4.1.5
-  rollup: 2.34.2
+  rollup: 2.35.1
   rollup-plugin-node-globals: 1.4.0
-  rollup-plugin-terser: 7.0.2_rollup@2.34.2
+  rollup-plugin-terser: 7.0.2_rollup@2.35.1
   rollup-plugin-version-injector: 1.3.0
 lockfileVersion: 5.2
 packages:
@@ -113,16 +113,16 @@ packages:
       node: '>= 8.0.0'
     resolution:
       integrity: sha512-z9ytrKWn/j/qUApMSJzZbUwkbLcN2ZXGq6UsqWkZb50Us+/Qpu0RwgZ6ytawVOhfFBZ1ai5iVWeD2Dcu0qcnJw==
-  /@rollup/plugin-commonjs/17.0.0_rollup@2.34.2:
+  /@rollup/plugin-commonjs/17.0.0_rollup@2.35.1:
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.34.2
+      '@rollup/pluginutils': 3.1.0_rollup@2.35.1
       commondir: 1.0.1
       estree-walker: 2.0.2
       glob: 7.1.6
       is-reference: 1.2.1
       magic-string: 0.25.7
       resolve: 1.19.0
-      rollup: 2.34.2
+      rollup: 2.35.1
     dev: true
     engines:
       node: '>= 8.0.0'
@@ -130,37 +130,37 @@ packages:
       rollup: ^2.30.0
     resolution:
       integrity: sha512-/omBIJG1nHQc+bgkYDuLpb/V08QyutP9amOrJRUSlYJZP+b/68gM//D8sxJe3Yry2QnYIr3QjR3x4AlxJEN3GA==
-  /@rollup/plugin-json/4.1.0_rollup@2.34.2:
+  /@rollup/plugin-json/4.1.0_rollup@2.35.1:
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.34.2
-      rollup: 2.34.2
+      '@rollup/pluginutils': 3.1.0_rollup@2.35.1
+      rollup: 2.35.1
     dev: true
     peerDependencies:
       rollup: ^1.20.0 || ^2.0.0
     resolution:
       integrity: sha512-yfLbTdNS6amI/2OpmbiBoW12vngr5NW2jCJVZSBEz+H5KfUJZ2M7sDjk0U6GOOdCWFVScShte29o9NezJ53TPw==
-  /@rollup/plugin-node-resolve/11.0.0_rollup@2.34.2:
+  /@rollup/plugin-node-resolve/11.0.1_rollup@2.35.1:
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.34.2
+      '@rollup/pluginutils': 3.1.0_rollup@2.35.1
       '@types/resolve': 1.17.1
       builtin-modules: 3.1.0
       deepmerge: 4.2.2
       is-module: 1.0.0
       resolve: 1.19.0
-      rollup: 2.34.2
+      rollup: 2.35.1
     dev: true
     engines:
       node: '>= 10.0.0'
     peerDependencies:
       rollup: ^1.20.0||^2.0.0
     resolution:
-      integrity: sha512-8Hrmwjn1pLYjUxcv7U7IPP0qfnzEJWHyHE6CaZ8jbLM+8axaarJRB1jB6JgKTDp5gNga+TpsgX6F8iuvgOerKQ==
-  /@rollup/pluginutils/3.1.0_rollup@2.34.2:
+      integrity: sha512-ltlsj/4Bhwwhb+Nb5xCz/6vieuEj2/BAkkqVIKmZwC7pIdl8srmgmglE4S0jFlZa32K4qvdQ6NHdmpRKD/LwoQ==
+  /@rollup/pluginutils/3.1.0_rollup@2.35.1:
     dependencies:
       '@types/estree': 0.0.39
       estree-walker: 1.0.1
       picomatch: 2.2.2
-      rollup: 2.34.2
+      rollup: 2.35.1
     dev: true
     engines:
       node: '>= 8.0.0'
@@ -2528,11 +2528,11 @@ packages:
     dev: true
     resolution:
       integrity: sha512-xRkB+W/m1KLIzPUmG0ofvR+CPNcvuCuNdjVBVS7ALKSxr3EDhnzNceGkGi1m8MToSli13AzKFYH4ie9w3I5L3g==
-  /rollup-plugin-terser/7.0.2_rollup@2.34.2:
+  /rollup-plugin-terser/7.0.2_rollup@2.35.1:
     dependencies:
       '@babel/code-frame': 7.10.4
       jest-worker: 26.6.2
-      rollup: 2.34.2
+      rollup: 2.35.1
       serialize-javascript: 4.0.0
       terser: 5.5.1
     dev: true
@@ -2554,7 +2554,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
-  /rollup/2.34.2:
+  /rollup/2.35.1:
     dev: true
     engines:
       node: '>=10.0.0'
@@ -2562,7 +2562,7 @@ packages:
     optionalDependencies:
       fsevents: 2.1.3
     resolution:
-      integrity: sha512-mvtQLqu3cNeoctS+kZ09iOPxrc1P1/Bt1z15enuQ5feyKOdM3MJAVFjjsygurDpSWn530xB4AlA83TWIzRstXA==
+      integrity: sha512-q5KxEyWpprAIcainhVy6HfRttD9kutQpHbeqDTWnqAFNJotiojetK6uqmcydNMymBEtC4I8bCYR+J3mTMqeaUA==
   /run-async/2.4.1:
     dev: true
     engines:
@@ -3128,7 +3128,7 @@ specifiers:
   '@koa/router': ^10.0.0
   '@rollup/plugin-commonjs': ^17.0.0
   '@rollup/plugin-json': ^4.1.0
-  '@rollup/plugin-node-resolve': ^11.0.0
+  '@rollup/plugin-node-resolve': ^11.0.1
   agentkeepalive: ^4.1.3
   commitizen: ^4.2.2
   dotenv-safe: ^8.2.0
@@ -3147,7 +3147,7 @@ specifiers:
   primus-emit: ^1.0.0
   primus.io: ^4.0.0
   proper-url-join: ^2.1.1
-  rollup: ^2.34.2
+  rollup: ^2.35.1
   rollup-plugin-node-globals: ^1.4.0
   rollup-plugin-terser: ^7.0.2
   rollup-plugin-version-injector: ^1.3.0

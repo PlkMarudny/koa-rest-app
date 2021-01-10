@@ -46,7 +46,7 @@ const logger = pinologger({
     },
 });
 
-if (process.env.LOGREQUEST) {
+if (process.env.LOGREQUEST === true) {
     app.use(logger);
 }
 
