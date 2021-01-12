@@ -1,6 +1,5 @@
 import Router from "@koa/router";
 
-
 const router = new Router();
 import koaBody from "koa-body";
 
@@ -54,6 +53,10 @@ const saveDoc = async (ctx) => {
             }
             ctx.response.status = 409;
             ctx.response.body = refDoc;
+        } else {
+            ctx.response.status = err.statusCode;
+            ctx.response.body = { message: err.message };
+            logger.error(err.message);
         }
     };
 };
