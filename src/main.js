@@ -1,6 +1,6 @@
-import dotenvSafe from "dotenv-safe";
 
-import pino from 'pino';
+
+import logger from './logger';
 import pinologger from 'koa-pino-logger';
 
 import jsonerror from "koa-json-error";
@@ -30,23 +30,17 @@ import Agent from "agentkeepalive";
 import "./errors/dberrors";
 
 // read .env (config file)
-const result = dotenvSafe.config();
-if (result.error) {
-    throw result.error;
-}
+// const result = dotenvSafe.config();
+// if (result.error) {
+//     throw result.error;
+// }
 
 // const app = new koa();
 const serverPort = process.env.PORT;
 
 app.silent = true;
 
-const logger = pinologger({
-    instance: pino, prettyPrint: {
-        colorize: true,
-    },
-});
-
-if (process.env.LOGREQUEST === true) {
+if (process.env.LOGREQUEST === 'true') {
     app.use(logger);
 }
 
@@ -115,7 +109,7 @@ if (versionObj && versionObj.tags.length > 0) {
         });
     }, process.env.VERINTERVAL * 1000);
 } else {
-    pino().info("Software version unknown, git commit was not tagged?");
+    logger.logger.info("Software version unknown, git commit was not tagged?");
 }
 
 // CouchDb
@@ -138,6 +132,6 @@ app.couchdb = nano({
 // 
 server.listen(serverPort, (err) => {
     if (err) throw err;
-    pino().info(`Server running at port ${serverPort}`);
+    logger.logger.info(`Server running at port ${serverPort}`);
 });
 
