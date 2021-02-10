@@ -48,12 +48,14 @@ socket.on('connection', function (spark, next) {
         });
 
         next();
-    }).on('takein', function incoming(s) {
-        logger.logger.info(`take in: ${s.user}`);
-        socket.forEach(function (s) {
+    }).on('takein', function incoming(userdata) {
+        logger.logger.info(`take in: ${userdata.user}`);
+        socket.forEach(function (spark) {
             // do not emit  to sender
-            if (s.id != spark.id) {
-                s.emit('takein', s.user);
+            logger.logger.info(`user: ${JSON.stringify(userdata)} is playing`);
+            logger.logger.info(`playing user: ${userdata.user},  spark user: ${spark.user.username}`);
+            if (userdata.user !== spark.user.username) {
+                spark.emit('takein', userdata);
             }
         });
     }).on('takeout', function incoming(s) {
@@ -61,6 +63,7 @@ socket.on('connection', function (spark, next) {
         socket.forEach(function (s) {
             // do not emit  to sender
             if (s.id != spark.id) {
+                logger.logger.info('will emit take in');
                 s.emit('takeout', "");
             }
         });
