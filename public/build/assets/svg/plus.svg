@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="18.848"
+   height="18.848"
+   viewBox="0 0 18.848 18.848"
+   version="1.1"
+   id="svg56">
+  <metadata
+     id="metadata60">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs44">
+    <clipPath
+       id="clip-path">
+      <path
+         id="Path_63"
+         data-name="Path 63"
+         d="M9.424-19A9.471,9.471,0,0,0,0-9.576,9.471,9.471,0,0,0,9.424-.152a9.471,9.471,0,0,0,9.424-9.424A9.521,9.521,0,0,0,9.424-19Zm0,17.632A8.272,8.272,0,0,1,1.216-9.576a8.272,8.272,0,0,1,8.208-8.208,8.272,8.272,0,0,1,8.208,8.208A8.272,8.272,0,0,1,9.424-1.368Z"
+         fill="none" />
+    </clipPath>
+    <clipPath
+       id="clip-path-2">
+      <path
+         id="Path_62"
+         data-name="Path 62"
+         d="M-890,743H510V-157H-890Z"
+         fill="none" />
+    </clipPath>
+    <clipPath
+       id="clip-path-3">
+      <path
+         id="Path_66"
+         data-name="Path 66"
+         d="M10.26-5.168a.762.762,0,0,1-.76.76H9.272a.762.762,0,0,1-.76-.76v-6.308a.762.762,0,0,1,.76-.76H9.5a.762.762,0,0,1,.76.76Z"
+         fill="none" />
+    </clipPath>
+    <clipPath
+       id="clip-path-5">
+      <path
+         id="Path_69"
+         data-name="Path 69"
+         d="M9.424-13.072a.836.836,0,0,0,.836-.836.836.836,0,0,0-.836-.836.836.836,0,0,0-.836.836A.836.836,0,0,0,9.424-13.072Z"
+         fill="none" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#clip-path)"
+     data-name="Group 62"
+     id="Group_62"
+     transform="translate(0,19)">
+    <g
+       clip-path="url(#clip-path-2)"
+       data-name="Group 61"
+       id="Group_61">
+      <path
+         fill="#010101"
+         d="M -5,-24 H 23.848 V 4.848 H -5 Z"
+         data-name="Path 61"
+         id="Path_61" />
+    </g>
+  </g>
+  <path
+     d="M 9.4804688 4.5546875 A 0.70233005 0.70233005 0 0 0 8.7792969 5.2578125 A 0.70233005 0.70233005 0 0 0 8.7871094 5.359375 L 8.7871094 8.828125 L 5.3222656 8.828125 A 0.70233005 0.70233005 0 0 0 5.2167969 8.8203125 A 0.70233005 0.70233005 0 0 0 4.5136719 9.5214844 A 0.70233005 0.70233005 0 0 0 5.1835938 10.222656 L 5.1835938 10.224609 L 5.2167969 10.224609 L 8.7871094 10.224609 L 8.7871094 13.679688 A 0.70233005 0.70233005 0 0 0 8.7792969 13.785156 A 0.70233005 0.70233005 0 0 0 9.4804688 14.488281 A 0.70233005 0.70233005 0 0 0 10.181641 13.818359 L 10.183594 13.818359 L 10.183594 13.785156 L 10.183594 10.224609 L 13.744141 10.224609 L 13.791016 10.224609 L 13.791016 10.222656 A 0.70233005 0.70233005 0 0 0 14.447266 9.5214844 A 0.70233005 0.70233005 0 0 0 13.744141 8.8203125 A 0.70233005 0.70233005 0 0 0 13.642578 8.828125 L 10.183594 8.828125 L 10.183594 5.2578125 L 10.183594 5.2109375 L 10.181641 5.2109375 A 0.70233005 0.70233005 0 0 0 9.4804688 4.5546875 z "
+     style="fill:#000000;fill-rule:evenodd"
+     id="path34" />
+</svg>

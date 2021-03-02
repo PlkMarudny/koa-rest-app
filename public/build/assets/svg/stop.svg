@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg4652"
+   version="1.1"
+   viewBox="0 0 11 10"
+   height="10"
+   width="11">
+  <metadata
+     id="metadata4656">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4647">
+    <clipPath
+       id="clip-path">
+      <path
+         fill="none"
+         d="M0,0H11V-10H0Z"
+         data-name="Path 75"
+         id="Path_75" />
+    </clipPath>
+  </defs>
+  <g
+     transform="matrix(0.8143722,0,0,0.87188042,0.61457361,9.3874283)"
+     data-name="Group 75"
+     id="Group_75">
+    <g
+       clip-path="url(#clip-path)"
+       data-name="Group 74"
+       id="Group_74">
+      <path
+         style="fill:#ffffff"
+         d="M -5,-15 H 16 V 5 H -5 Z"
+         data-name="Path 74"
+         id="Path_74" />
+    </g>
+  </g>
+</svg>

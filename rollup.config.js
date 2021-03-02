@@ -12,7 +12,7 @@ export default {
 	output: {
 		file: 'public/bundle.js',
 		format: 'cjs',
-		sourcemap: !production
+		sourcemap: false
 	},
 	plugins: [
 		resolve({

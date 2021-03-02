@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg899"
+   version="1.1"
+   viewBox="0 0 32 32"
+   height="32"
+   width="32">
+  <metadata
+     id="metadata903">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs879">
+    <clipPath
+       id="clip-path">
+      <path
+         clip-rule="evenodd"
+         fill="none"
+         d="M16.5-1a16,16,0,0,0,16-16,16,16,0,0,0-16-16A16,16,0,0,0,.5-17,16,16,0,0,0,16.5-1Z"
+         data-name="Path 60"
+         id="Path_60" />
+    </clipPath>
+    <clipPath
+       id="clip-path-2">
+      <path
+         fill="none"
+         d="M-924,799H476V-101H-924Z"
+         data-name="Path 59"
+         id="Path_59" />
+    </clipPath>
+    <clipPath
+       id="clip-path-3">
+      <rect
+         fill="none"
+         transform="translate(-10 -43)"
+         height="52"
+         width="53"
+         data-name="Rectangle 5"
+         id="Rectangle_5" />
+    </clipPath>
+    <clipPath
+       id="clip-path-5">
+      <path
+         fill="none"
+         d="M0-1H33V-33H0Z"
+         data-name="Path 55"
+         id="Path_55" />
+    </clipPath>
+    <clipPath
+       id="clip-path-7">
+      <path
+         fill="none"
+         d="M16.5-33A16,16,0,0,0,.5-17a16,16,0,0,0,16,16,16,16,0,0,0,16-16A16.018,16.018,0,0,0,16.5-33Zm0,30.5A14.5,14.5,0,0,1,2-17,14.5,14.5,0,0,1,16.5-31.5,14.5,14.5,0,0,1,31-17,14.521,14.521,0,0,1,16.5-2.5Zm6.839-6.944a.748.748,0,0,1-.748.748h-12.1a.748.748,0,0,1-.748-.748.748.748,0,0,1,.748-.748h12.1a.748.748,0,0,1,.529.219.748.748,0,0,1,.219.529Z"
+         data-name="Path 51"
+         id="Path_51" />
+    </clipPath>
+  </defs>
+  <g
+     id="g978">
+    <g
+       clip-path="url(#clip-path)"
+       transform="translate(-0.5,33)"
+       data-name="Group 58"
+       id="Group_58"
+       style="fill:#f4d6d6;fill-opacity:1">
+      <g
+         clip-path="url(#clip-path-2)"
+         data-name="Group 57"
+         id="Group_57"
+         style="fill:#f4d6d6;fill-opacity:1">
+        <g
+           style="isolation:isolate;fill:#f4d6d6;fill-opacity:1"
+           data-name="Group 56"
+           id="Group_56">
+          <g
+             clip-path="url(#clip-path-3)"
+             data-name="Group 55"
+             id="Group_55"
+             style="fill:#f4d6d6;fill-opacity:1">
+            <g
+               clip-path="url(#clip-path)"
+               data-name="Group 52"
+               id="Group_52"
+               style="fill:#f4d6d6;fill-opacity:1">
+              <g
+                 clip-path="url(#clip-path-5)"
+                 data-name="Group 51"
+                 id="Group_51"
+                 style="fill:#f4d6d6;fill-opacity:1">
+                <path
+                   fill="#f4d6d6"
+                   d="m 16.5,-1 a 16,16 0 0 0 16,-16 16,16 0 0 0 -16,-16 16,16 0 0 0 -16,16 16,16 0 0 0 16,16 z"
+                   data-name="Path 54"
+                   id="Path_54"
+                   style="fill:#f4d6d6;fill-opacity:1" />
+              </g>
+            </g>
+            <g
+               clip-path="url(#clip-path-5)"
+               data-name="Group 54"
+               id="Group_54"
+               style="fill:#f4d6d6;fill-opacity:1">
+              <g
+                 transform="translate(0.5,-33)"
+                 data-name="Group 53"
+                 id="Group_53"
+                 style="fill:#f4d6d6;fill-opacity:1">
+                <path
+                   stroke-width="2"
+                   stroke="#e19090"
+                   fill="none"
+                   d="M 16,32 A 16,16 0 1 0 0,16 16,16 0 0 0 16,32 Z"
+                   data-name="Path 57"
+                   id="Path_57"
+                   style="fill:#f4d6d6;fill-opacity:1" />
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="Group_49"
+       data-name="Group 49"
+       transform="translate(-0.5,33)"
+       clip-path="url(#clip-path-7)"
+       style="fill:#c41b1a;fill-opacity:1">
+      <g
+         id="Group_48"
+         data-name="Group 48"
+         clip-path="url(#clip-path-2)"
+         style="fill:#c41b1a;fill-opacity:1">
+        <path
+           id="Path_49"
+           data-name="Path 49"
+           d="m -4.5,-38 h 42 V 4 h -42 z"
+           fill="#c41b1a"
+           style="fill:#c41b1a;fill-opacity:1" />
+      </g>
+    </g>
+    <circle
+       style="fill:#c41b1a;fill-opacity:1;stroke-width:0.676535;stroke-linecap:round"
+       id="path932"
+       cx="16"
+       cy="16"
+       r="11.894246" />
+    <circle
+       style="fill:#f4d6d6;fill-opacity:1;stroke-width:0.744189;stroke-linecap:round"
+       id="path934"
+       cx="16"
+       cy="16"
+       r="10.948678" />
+    <rect
+       style="fill:#c41b1a;fill-opacity:1;stroke-width:0.448303;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="rect936"
+       width="1.7916019"
+       height="7.0668736"
+       x="15.129082"
+       y="6.4199071" />
+    <rect
+       y="-13.736874"
+       x="14.797419"
+       height="7.0668736"
+       width="1.7916019"
+       id="rect940"
+       style="fill:#c41b1a;fill-opacity:1;stroke-width:0.448303;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+       transform="rotate(90.186105)" />
+    <circle
+       style="fill:#c41b1a;fill-opacity:1;stroke-width:0.677;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="path942"
+       cx="15.950233"
+       cy="15.701399"
+       r="1.0202178" />
+    <path
+       style="fill:none;stroke:#c41b1a;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 23.539658,15.975117 h 1.642302 v 0"
+       id="path951" />
+    <path
+       id="path953"
+       d="m 15.950233,23.664074 v 1.642302 0"
+       style="fill:none;stroke:#c41b1a;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

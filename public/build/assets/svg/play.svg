@@ -1,0 +1,61 @@
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="8"
+   height="10"
+   viewBox="0 0 12 10"
+   version="1.1"
+   id="svg3818">
+  <metadata
+     id="metadata3822">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3812">
+    <clipPath
+       id="clip-path">
+      <path
+         id="Path_73"
+         data-name="Path 73"
+         d="M0-9,10-4.5,0,0Z"
+         fill="none"
+         clip-rule="evenodd" />
+    </clipPath>
+    <clipPath
+       id="clip-path-2">
+      <path
+         id="Path_72"
+         data-name="Path 72"
+         d="M-1087,108H313V-792H-1087Z"
+         fill="none" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#clip-path)"
+     data-name="Group 72"
+     id="Group_72"
+     transform="matrix(0.73298586,0,0,1.3678993,1.8865165,11.073155)">
+    <g
+       clip-path="url(#clip-path-2)"
+       data-name="Group 71"
+       id="Group_71">
+      <path
+         style="fill:#ffffff"
+         d="M -5,-14 H 15 V 5 H -5 Z"
+         data-name="Path 71"
+         id="Path_71" />
+    </g>
+  </g>
+</svg>
